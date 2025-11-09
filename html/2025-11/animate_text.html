@@ -7,6 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="cursor"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let cursor = document.querySelector('.cursor');
+            let textContent = "animate text trail effect";
+
+            for (let i = 0; i < textContent.length; i++) {
+                let span = document.createAttribute('span');
+                span.classList.add('text');
+                span.style.setProperty('--i', i+1);
+                span.textContent= textContent[i];
+                cursor.appendChild(span);
+            }
+        })
+    </script>
 </body>
 </html>
