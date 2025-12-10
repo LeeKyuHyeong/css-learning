@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="/css/2025-12/251209_glowing_mouse.css">
 </head>
 <body>
-    
+    <div id="cursor"></div>
+    <script>
+        let cursor = document.querySelector('#cursor');
+        let body = document.querySelector('body');
+        document.addEventListener('mousemove', (e) => {
+            body.style.backgroundPositionX = e.pageX/-4 + 'px';
+            body.style.backgroundPositionY = e.pageY/-4 + 'px';
+        })
+    </script>
 </body>
 </html>
