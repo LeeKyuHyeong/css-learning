@@ -27,7 +27,7 @@ body
     position: absolute;
     width: 10px;
     height: 10px;
-    background: url(/img/2025-12/mario.jpg);
+    background-image: url(/img/2025-12/mario.jpg);
     background-size: auto;
     background-repeat: no-repeat;
     animation: animate 10s linear infinite;
