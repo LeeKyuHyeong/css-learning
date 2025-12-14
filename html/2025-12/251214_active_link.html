@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/2025-12/251214_active_link.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Logo</a>
+        <nav>
+            <a class="active" href="#home" style="--clr:#ff4d4d;">Home</a>
+            <a href="#about" style="--clr:#c56cf0;">About</a>
+            <a href="#service" style="--clr:#ffeaa7;">Services</a>
+            <a href="#portfolio" style="--clr:#17c0eb;">Portfolio</a>
+            <a href="#contact" style="--clr:#fd79a8;">Contact</a>
+        </nav>
+    </header>
+    <section id="home" style="--clr: #ff4d4d;">Home</section>
+    <section id="about" style="--clr: #c56cf0;">About</section>
+    <section id="service" style="--clr: #ffeaa7;">Services</section>
+    <section id="portfolio" style="--clr: #17c0eb;">Portfolio</section>
+    <section id="contact" style="--clr: #fd79a8;">Contact</section>
+
+    <script>
+        let sec = document.querySelectorAll('section');
+        let links = document.querySelectorAll('nav a');
+
+        window.onscroll= () => {
+            sec.forEach(section => {
+                let top = window.scrollY;
+                let offset = section.offsetTop - 70;
+                let height = section.offsetHeight;
+                let id = section.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    links.forEach(link => {
+                        link.classList.remove('active');
+                        document.querySelector('nav a[href*=' + id + ']').classList.add('active');
+                    })
+                }
+            })
+        };
+    
+    </script>
+</body>
+</html>
