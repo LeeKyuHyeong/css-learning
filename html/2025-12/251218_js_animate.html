@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/2025-12/251218_js_animate.css">
+</head>
+<body>
+    <script>
+        function lines() {
+            let sizeW = Math.random() * 12;
+            let duration = Math.random() * 3;
+            let e = document.createElement('div');
+            e.setAttribute('class', 'circle');
+            document.body.appendChild(e);
+
+            e.style.width = 2 + sizeW + 'px';
+            e.style.left = Math.random() * + innerWidth + 'px';
+            e.style.animationDuration = 2 + duration + 's';
+            
+            setTimeout(function() {
+                document.body.removeChild(e)
+            }, 5000);
+        }
+
+        setInterval(function() {
+            lines();
+        },200);
+    </script>
+</body>
+</html>
