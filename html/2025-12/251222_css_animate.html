@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/2025-12/251222_css_animate.css">
+</head>
+<body>
+    <a href="#" id="">
+        <i></i><i></i>
+        <span>Button</span>
+    </a>
+    <script>
+        let btn = document.querySelector('a');
+        btn.addEventListener('mousemove', e => {
+            let rect = e.target.getBoundingClientRect();
+            let x = e.clientX * 3 - rect.left;
+            btn.style.setProperty('--x', x + 'deg');
+        })
+    </script>
+</body>
+</html>
