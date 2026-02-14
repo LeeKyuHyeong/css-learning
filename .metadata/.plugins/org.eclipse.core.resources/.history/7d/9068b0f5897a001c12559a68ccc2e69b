@@ -1,0 +1,40 @@
+package user;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class UserDAO {
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	public UserDAO() {
+		try {
+			String dbURL = "jdbc:mysql://localhost:3306/BBS";
+			String dbID = "root";
+			String dbPwd = "1234";
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPwd);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public int login(String userId, String userPwd) {
+		String SQL = "select userPwd from user where userId = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				
+			}else{
+				return -1; //비번 안맞
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -2; //DB 오류
+	}
+}
